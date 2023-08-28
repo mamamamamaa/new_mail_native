@@ -1,12 +1,6 @@
-import axios, {AxiosResponse} from 'axios';
+import axios from 'axios';
 import {NP_API_KEY, NP_BASE_URL} from '@env';
 import {useState} from 'react';
-import {
-  Animated,
-  NativeSyntheticEvent,
-  TextInputChangeEventData,
-} from 'react-native';
-import loop = Animated.loop;
 
 type ResponseTracking = {
   Status: string;
@@ -28,6 +22,8 @@ const createFetchParams = (ttn: string) => ({
   },
 });
 
+const TTN_REGEXP = /[^0-9]/g;
+
 export const useTtnInfo = () => {
   const [ttn, setTtn] = useState<string>('');
   const [ttnInfo, setTtnInfo] = useState<ResponseTracking | null>(null);
@@ -38,14 +34,13 @@ export const useTtnInfo = () => {
         NP_BASE_URL,
         fetchParams,
       );
-
       setTtnInfo(data);
     } catch (e) {
       console.log(e);
     }
   };
 
-  const handleChangeTtn = (ttn: string) => setTtn(ttn);
+  const handleChangeTtn = (ttn: string) => setTtn(ttn.replace(TTN_REGEXP, ''));
 
-  return {handleChangeTtn, ttnInfo, ttn};
+  return {handleChangeTtn, ttnInfo, ttn, handleSubmit: handleGetTtnInfo};
 };

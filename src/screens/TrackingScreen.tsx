@@ -1,22 +1,34 @@
-import {StyleSheet, Text, TextInput, View} from 'react-native';
-import {useTtnInfo} from '../hooks/useTttnInfo';
+import {StyleSheet, TextInput} from 'react-native';
+import {useTtnInfo} from '../hooks';
+import {ScreenContainer} from '../components';
 
 export const TrackingScreen = () => {
-  const {ttn, ttnInfo, handleChangeTtn} = useTtnInfo();
+  const {ttn, handleChangeTtn} = useTtnInfo();
 
   return (
-    <View>
+    <ScreenContainer>
       <TextInput
-        style={inputStyles.input}
+        style={styles.input}
         value={ttn}
         onChangeText={handleChangeTtn}
         onSubmitEditing={() => console.log(ttn)}
         placeholder="TTN"
+        placeholderTextColor="white"
+        cursorColor="white"
+        keyboardType="numeric"
+        maxLength={14}
       />
-    </View>
+    </ScreenContainer>
   );
 };
 
-const inputStyles = StyleSheet.create({
-  input: {},
+const styles = StyleSheet.create({
+  input: {
+    backgroundColor: 'gray',
+    color: 'white',
+    padding: 10,
+    borderStyle: 'solid',
+    borderRadius: 10,
+    borderColor: 'gray',
+  },
 });

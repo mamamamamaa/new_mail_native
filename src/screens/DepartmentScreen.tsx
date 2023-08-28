@@ -1,5 +1,10 @@
 import {Text} from 'react-native';
+import {ScreenContainer} from '../components';
 
 export const DepartmentScreen = () => {
-  return <Text>Department screen</Text>;
+  return (
+    <ScreenContainer>
+      <Text>Department screen</Text>
+    </ScreenContainer>
+  );
 };
