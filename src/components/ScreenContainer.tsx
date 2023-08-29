@@ -1,5 +1,6 @@
 import {ReactNode} from 'react';
-import {DimensionValue, StyleSheet, View} from 'react-native';
+import {Animated, DimensionValue, StyleSheet, View} from 'react-native';
+import ScrollView = Animated.ScrollView;
 
 type Props = {
   children: ReactNode;
@@ -12,10 +13,10 @@ export const ScreenContainer = ({
   marginTop = '70%',
   extraComponent: Component,
 }: Props) => (
-  <View style={styles.mainContainer}>
+  <ScrollView style={styles.mainContainer}>
     {Component && <Component />}
     <View style={{...styles.container, marginTop}}>{children}</View>
-  </View>
+  </ScrollView>
 );
 
 const styles = StyleSheet.create({

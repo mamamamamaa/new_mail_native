@@ -12,10 +12,15 @@ const styles = StyleSheet.create({
   headingContainer: {
     position: 'absolute',
     top: '25%',
-    marginVertical: 10,
-    marginHorizontal: 5,
+    left: '3%',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 10,
+    backgroundColor: 'white',
   },
   heading: {
     textAlign: 'center',
+    fontSize: 30,
+    color: '#2196F3',
   },
 });

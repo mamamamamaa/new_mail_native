@@ -1,13 +1,7 @@
 import axios from 'axios';
-import {NP_API_KEY, NP_BASE_URL} from '@env';
 import {useState} from 'react';
-
-type ResponseTracking = {
-  Status: string;
-  WarehouseSender: string;
-  WarehouseRecipient: string;
-  Number: string;
-};
+import {NP_API_KEY, NP_BASE_URL} from '@env';
+import {ResponseTracking} from '../types';
 
 const createFetchParams = (ttn: string) => ({
   apiKey: NP_API_KEY,
@@ -30,11 +24,16 @@ export const useTtnInfo = () => {
   const handleGetTtnInfo = async () => {
     const fetchParams = createFetchParams(ttn);
     try {
-      const {data} = await axios.post<ResponseTracking>(
-        NP_BASE_URL,
-        fetchParams,
-      );
-      setTtnInfo(data);
+      const {data: res} = await axios.post(NP_BASE_URL, fetchParams);
+
+      console.log(res);
+      setTtnInfo({
+        DocumentCost: res.data[0].DocumentCost,
+        CargoDescriptionString: res.data[0].CargoDescriptionString,
+        Status: res.data[0].Status,
+        WarehouseSender: res.data[0].WarehouseSender,
+        WarehouseRecipient: res.data[0].WarehouseRecipient,
+      });
     } catch (e) {
       console.log(e);
     }
