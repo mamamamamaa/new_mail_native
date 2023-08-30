@@ -20,13 +20,24 @@ const TTN_REGEXP = /[^0-9]/g;
 
 export const useTtnInfo = () => {
   const [ttn, setTtn] = useState<string>('');
+  const [phoneNumber, setPhoneNumber] = useState<string>('');
   const [ttnInfo, setTtnInfo] = useState<ResponseTracking | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleChangePhoneNumber = (number: string) => setPhoneNumber(number);
+
+  const handleChangeTtn = (ttn: string) => setTtn(ttn.replace(TTN_REGEXP, ''));
+
   const handleGetTtnInfo = async () => {
     const fetchParams = createFetchParams(ttn);
+
+    if (!ttn.trim()) return setError('Ttn number required!!');
+
     try {
       const {data: res} = await axios.post(NP_BASE_URL, fetchParams);
 
-      console.log(res);
+      if (res.errors.length > 0) return setError(res.errors[0]);
+
       setTtnInfo({
         DocumentCost: res.data[0].DocumentCost,
         CargoDescriptionString: res.data[0].CargoDescriptionString,
@@ -35,11 +46,19 @@ export const useTtnInfo = () => {
         WarehouseRecipient: res.data[0].WarehouseRecipient,
       });
     } catch (e) {
-      console.log(e);
+      if (e instanceof Error) {
+        setError(e.message);
+      }
     }
   };
 
-  const handleChangeTtn = (ttn: string) => setTtn(ttn.replace(TTN_REGEXP, ''));
-
-  return {handleChangeTtn, ttnInfo, ttn, handleSubmit: handleGetTtnInfo};
+  return {
+    ttn,
+    error,
+    ttnInfo,
+    phoneNumber,
+    handleChangeTtn,
+    handleChangePhoneNumber,
+    handleSubmit: handleGetTtnInfo,
+  };
 };
