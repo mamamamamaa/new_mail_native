@@ -1,7 +1,12 @@
 export type ResponseTracking = {
   Status: string;
-  WarehouseSender: string;
-  WarehouseRecipient: string;
   DocumentCost: string;
   CargoDescriptionString: string;
+  CityRecipient: string;
+  CitySender: string;
+  SenderFullNameEW: string;
 };
+
+export type Warnings = {
+  [key: string]: string;
+}[];
