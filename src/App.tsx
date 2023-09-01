@@ -10,8 +10,16 @@ export default () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home" screenOptions={{title: ''}}>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Tracking" component={TrackingScreen} />
-        <Stack.Screen name="Department" component={DepartmentScreen} />
+        <Stack.Screen
+          name="Tracking"
+          options={{title: 'Tracking Info'}}
+          component={TrackingScreen}
+        />
+        <Stack.Screen
+          name="Department"
+          options={{title: 'Find Department'}}
+          component={DepartmentScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

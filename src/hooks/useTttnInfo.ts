@@ -13,6 +13,7 @@ export const useTtnInfo = () => {
   const [ttnInfo, setTtnInfo] = useState<ResponseTracking | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [warning, setWarning] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleChangePhoneNumber = (number: string) => setPhoneNumber(number);
 
@@ -21,17 +22,20 @@ export const useTtnInfo = () => {
   const handleGetTtnInfo = async () => {
     setError(null);
     setWarning(null);
+    setLoading(true);
 
     const fetchBody = createFetchBody(ttn, phoneNumber);
 
     if (!ttn.trim()) {
-      return setError('TTN number required!!');
+      setLoading(false);
+      return setError('TTN number is required!!');
     }
 
     try {
       const {data: res} = await axios.post(NP_BASE_URL, fetchBody);
 
       if (res.errors.length > 0) {
+        setLoading(false);
         return setError(res.errors[0]);
       }
 
@@ -48,12 +52,12 @@ export const useTtnInfo = () => {
         CitySender: res.data[0].CitySender,
         SenderFullNameEW: res.data[0].SenderFullNameEW,
       });
-
-      console.log(res);
     } catch (e) {
       if (e instanceof Error) {
         setError(e.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -62,6 +66,7 @@ export const useTtnInfo = () => {
     error,
     ttnInfo,
     warning,
+    loading,
     phoneNumber,
     handleChangeTtn,
     handleChangePhoneNumber,
