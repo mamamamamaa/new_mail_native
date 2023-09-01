@@ -1,1 +1,1 @@
-export type ResponseWarehouses = {Description: string}[];
+export type ResponseWarehouses = {SiteKey: string; Description: string}[];

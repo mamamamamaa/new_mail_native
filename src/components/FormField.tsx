@@ -5,14 +5,14 @@ type Props = {
   value: string;
   onChange: (ttn: string) => void;
   placeholder: string;
-  maxLength: number;
+  maxLength?: number;
   keyboardType?: KeyboardTypeOptions;
 };
 
 export const FormField = ({
   maxLength,
   title,
-  keyboardType,
+  keyboardType = 'default',
   value,
   placeholder,
   onChange,

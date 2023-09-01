@@ -1,5 +1,5 @@
 import {ReactNode} from 'react';
-import {KeyboardAvoidingView, Platform, ScrollView} from 'react-native';
+import {KeyboardAvoidingView, Platform, ScrollView, View} from 'react-native';
 
 type Props = {
   children: ReactNode;
@@ -7,10 +7,10 @@ type Props = {
 };
 
 export const CommonScreenContainer = ({children, style}: Props) => (
-  <ScrollView style={style}>
+  <View style={style}>
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       {children}
     </KeyboardAvoidingView>
-  </ScrollView>
+  </View>
 );

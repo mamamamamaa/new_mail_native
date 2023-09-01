@@ -5,3 +5,5 @@ export * from './TtnInfoForm';
 export * from './Loader';
 export * from './FormField';
 export * from './CommonScreenContainer';
+export * from './WarehousesForm';
+export * from './WarehousesList';

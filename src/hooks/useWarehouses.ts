@@ -14,10 +14,10 @@ const createFetchBody = (city: string) => ({
 
 export const useWarehouses = () => {
   const [city, setCity] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
   const [warehousesDescription, setWarehousesDescription] =
     useState<ResponseWarehouses | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
 
   const handleChangeCity = (city: string) => setCity(city.trim());
 
@@ -40,8 +40,8 @@ export const useWarehouses = () => {
         return setError(res.errors[0]);
       }
 
-      const descriptions = res.data.map(
-        (warehouse: any) => warehouse.Description,
+      const descriptions: ResponseWarehouses = res.data.map(
+        ({SiteKey, Description}: any) => ({SiteKey, Description}),
       );
 
       setWarehousesDescription(descriptions);

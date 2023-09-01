@@ -7,15 +7,13 @@ import {
 } from '../components';
 
 export const TrackingScreen = () => {
-  const {ttnInfo, loading, ...inputProps} = useTtnInfo();
-  // 20450766702783
-  // 20450764514911
+  const {ttnInfo, loading, ...formProps} = useTtnInfo();
 
   return (
     <CommonScreenContainer>
       <Loader visible={loading} />
 
-      <TtnInfoForm {...inputProps} />
+      <TtnInfoForm {...formProps} />
 
       {ttnInfo && <TrackingInfo ttnInfo={ttnInfo} />}
     </CommonScreenContainer>
