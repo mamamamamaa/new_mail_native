@@ -1,6 +1,6 @@
 import {ReactNode} from 'react';
-import {Animated, DimensionValue, StyleSheet, View} from 'react-native';
-import ScrollView = Animated.ScrollView;
+import {DimensionValue, StyleSheet, View} from 'react-native';
+import {CommonScreenContainer} from './CommonScreenContainer';
 
 type Props = {
   children: ReactNode;
@@ -8,23 +8,25 @@ type Props = {
   extraComponent?: () => JSX.Element;
 };
 
-export const ScreenContainer = ({
+export const HomeContainer = ({
   children,
   marginTop = '70%',
   extraComponent: Component,
 }: Props) => (
-  <ScrollView style={styles.mainContainer}>
+  <CommonScreenContainer style={styles.mainContainer}>
     {Component && <Component />}
     <View style={{...styles.container, marginTop}}>{children}</View>
-  </ScrollView>
+  </CommonScreenContainer>
 );
 
 const styles = StyleSheet.create({
   mainContainer: {
     position: 'relative',
+    height: 100,
   },
   heading: {
     textAlign: 'center',
+    height: 100,
   },
   container: {
     padding: 20,

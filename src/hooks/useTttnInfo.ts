@@ -17,24 +17,25 @@ export const useTtnInfo = () => {
 
   const handleChangePhoneNumber = (number: string) => setPhoneNumber(number);
 
-  const handleChangeTtn = (ttn: string) => setTtn(ttn.replace(TTN_REGEXP, ''));
+  const handleChangeTtn = (ttn: string) =>
+    setTtn(ttn.replace(TTN_REGEXP, '').trim());
 
   const handleGetTtnInfo = async () => {
     setError(null);
     setWarning(null);
     setLoading(true);
 
-    const fetchBody = createFetchBody(ttn, phoneNumber);
-
-    if (!ttn.trim()) {
+    if (!ttn) {
       setLoading(false);
       return setError('TTN number is required!!');
     }
 
+    const fetchBody = createFetchBody(ttn, phoneNumber);
+
     try {
       const {data: res} = await axios.post(NP_BASE_URL, fetchBody);
 
-      if (res.errors.length > 0) {
+      if (!res.success) {
         setLoading(false);
         return setError(res.errors[0]);
       }

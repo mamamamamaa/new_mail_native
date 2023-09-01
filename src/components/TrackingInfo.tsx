@@ -6,7 +6,7 @@ type Props = {
 };
 
 const WARNING_MESSAGE =
-  'Send request with phone number phone number to get this information';
+  'Send request with phone number to get this information';
 
 export const TrackingInfo = ({ttnInfo}: Props) => {
   return (
