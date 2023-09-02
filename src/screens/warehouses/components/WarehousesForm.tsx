@@ -1,6 +1,7 @@
 import {FC} from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import {FormField} from '../../../common/components';
+import {DefaultCities} from './DefaultCities';
 
 type Props = {
   error: string | null;
@@ -26,12 +27,8 @@ export const WarehousesForm: FC<Props> = ({
       />
     </View>
 
-    <View style={styles.inputContainer}>
-      <Text>Pick default city:</Text>
-      <Text onPress={() => handleChangeCity('Київ')}>Київ</Text>
-      <Text onPress={() => handleChangeCity('Дніпро')}>Дніпро</Text>
-      <Text onPress={() => handleChangeCity('Одеса')}>Одеса</Text>
-    </View>
+    <DefaultCities handleChangeCity={handleChangeCity} />
+
     <Button title="Get Warehouses" onPress={handleSubmit} />
   </View>
 );
