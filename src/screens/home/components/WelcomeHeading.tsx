@@ -1,6 +1,7 @@
+import {FC} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-export const WelcomeHeading = () => {
+export const WelcomeHeading: FC = () => {
   return (
     <View style={styles.headingContainer}>
       <Text style={styles.heading}>Welcome to the New Mail application</Text>

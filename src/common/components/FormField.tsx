@@ -1,3 +1,4 @@
+import {FC} from 'react';
 import {KeyboardTypeOptions, StyleSheet, Text, TextInput} from 'react-native';
 
 type Props = {
@@ -9,14 +10,14 @@ type Props = {
   keyboardType?: KeyboardTypeOptions;
 };
 
-export const FormField = ({
+export const FormField: FC<Props> = ({
   maxLength,
   title,
   keyboardType = 'default',
   value,
   placeholder,
   onChange,
-}: Props) => (
+}) => (
   <>
     <Text>{title}</Text>
     <TextInput

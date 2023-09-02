@@ -1,14 +1,13 @@
+import {FC} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {ResponseTracking} from '../types';
+import {WARNING_MESSAGE} from '../constants';
 
 type Props = {
   ttnInfo: ResponseTracking;
 };
 
-const WARNING_MESSAGE =
-  'Send request with phone number to get this information';
-
-export const TrackingInfo = ({ttnInfo}: Props) => {
+export const TrackingInfo: FC<Props> = ({ttnInfo}) => {
   return (
     <View style={styles.infoContainer}>
       <Text style={styles.heading}>Ttn info:</Text>

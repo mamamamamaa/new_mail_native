@@ -1,11 +1,11 @@
-import React from 'react';
+import {FC} from 'react';
 import {ActivityIndicator, Modal, StyleSheet, View} from 'react-native';
 
 type Props = {
   visible: boolean;
 };
 
-export const Loader = ({visible}: Props) => (
+export const Loader: FC<Props> = ({visible}) => (
   <Modal transparent animationType="none" visible={visible}>
     <View style={styles.backdrop}>
       <ActivityIndicator size="large" color="#2196F3" />

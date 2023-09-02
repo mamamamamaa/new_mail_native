@@ -1,5 +1,6 @@
 import {Button, StyleSheet, Text, View} from 'react-native';
 import {FormField} from '../../../common/components';
+import {FC} from 'react';
 
 type Props = {
   error: string | null;
@@ -11,7 +12,7 @@ type Props = {
   handleSubmit: () => Promise<void>;
 };
 
-export const TtnInfoForm = ({
+export const TtnInfoForm: FC<Props> = ({
   ttn,
   handleChangeTtn,
   handleSubmit,
@@ -19,7 +20,7 @@ export const TtnInfoForm = ({
   phoneNumber,
   error,
   warning,
-}: Props) => (
+}) => (
   <View style={styles.formContainer}>
     <View style={styles.inputsContainer}>
       {error && <Text style={styles.errorMessage}>Error: {error}</Text>}

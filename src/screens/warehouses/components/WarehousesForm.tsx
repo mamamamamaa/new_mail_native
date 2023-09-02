@@ -1,3 +1,4 @@
+import {FC} from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import {FormField} from '../../../common/components';
 
@@ -8,12 +9,12 @@ type Props = {
   handleSubmit: () => Promise<void>;
 };
 
-export const WarehousesForm = ({
+export const WarehousesForm: FC<Props> = ({
   handleChangeCity,
   handleSubmit,
   city,
   error,
-}: Props) => (
+}) => (
   <View style={styles.formContainer}>
     <View style={styles.inputContainer}>
       {error && <Text style={styles.errorMessage}>Error: {error}</Text>}

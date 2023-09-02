@@ -1,18 +1,18 @@
-import {ReactNode} from 'react';
+import {FC, ReactNode} from 'react';
 import {DimensionValue, StyleSheet, View} from 'react-native';
 import {CommonScreenContainer} from '../../../common/components';
 
 type Props = {
   children: ReactNode;
   marginTop?: DimensionValue;
-  extraComponent?: () => JSX.Element;
+  extraComponent?: FC;
 };
 
-export const HomeContainer = ({
+export const HomeContainer: FC<Props> = ({
   children,
   marginTop = '70%',
   extraComponent: Component,
-}: Props) => (
+}) => (
   <CommonScreenContainer style={styles.mainContainer}>
     {Component && <Component />}
     <View style={{...styles.container, marginTop}}>{children}</View>

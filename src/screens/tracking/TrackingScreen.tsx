@@ -1,8 +1,9 @@
+import {FC} from 'react';
 import {TrackingInfo, TtnInfoForm} from './components';
 import {useTtnInfo} from './hooks';
 import {CommonScreenContainer, Loader} from '../../common/components';
 
-export const TrackingScreen = () => {
+export const TrackingScreen: FC = () => {
   const {ttnInfo, loading, ...formProps} = useTtnInfo();
 
   return (
