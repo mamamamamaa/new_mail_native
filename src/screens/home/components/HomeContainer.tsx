@@ -1,6 +1,6 @@
 import {ReactNode} from 'react';
 import {DimensionValue, StyleSheet, View} from 'react-native';
-import {CommonScreenContainer} from './CommonScreenContainer';
+import {CommonScreenContainer} from '../../../common/components';
 
 type Props = {
   children: ReactNode;

@@ -1,5 +1,5 @@
 import {ReactNode} from 'react';
-import {KeyboardAvoidingView, Platform, ScrollView, View} from 'react-native';
+import {KeyboardAvoidingView, Platform, View} from 'react-native';
 
 type Props = {
   children: ReactNode;

@@ -1,9 +1,8 @@
 import axios from 'axios';
 import {useState} from 'react';
 import {NP_BASE_URL} from '@env';
+import {createFetchBody, getWarning} from '../utils';
 import {ResponseTracking} from '../types';
-import {createFetchBody} from '../utils';
-import {getWarning} from '../utils/getWarning';
 
 const TTN_REGEXP = /[^0-9]/g;
 

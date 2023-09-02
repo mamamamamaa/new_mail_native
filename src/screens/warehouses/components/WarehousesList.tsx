@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     gap: 10,
-    height: '75%',
+    height: '60%',
   },
 
   listItem: {

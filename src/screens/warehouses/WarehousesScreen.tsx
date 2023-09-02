@@ -1,10 +1,6 @@
-import {
-  CommonScreenContainer,
-  Loader,
-  WarehousesForm,
-  WarehousesList,
-} from '../components';
-import {useWarehouses} from '../hooks';
+import {WarehousesForm, WarehousesList} from './components';
+import {useWarehouses} from './hooks';
+import {CommonScreenContainer, Loader} from '../../common/components';
 
 export const WarehousesScreen = () => {
   const {warehousesDescription, loading, ...formProps} = useWarehouses();

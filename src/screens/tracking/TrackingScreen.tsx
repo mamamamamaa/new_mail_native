@@ -1,10 +1,6 @@
-import {useTtnInfo} from '../hooks';
-import {
-  Loader,
-  TrackingInfo,
-  TtnInfoForm,
-  CommonScreenContainer,
-} from '../components';
+import {TrackingInfo, TtnInfoForm} from './components';
+import {useTtnInfo} from './hooks';
+import {CommonScreenContainer, Loader} from '../../common/components';
 
 export const TrackingScreen = () => {
   const {ttnInfo, loading, ...formProps} = useTtnInfo();

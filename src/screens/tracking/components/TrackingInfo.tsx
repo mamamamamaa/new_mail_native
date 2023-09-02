@@ -1,5 +1,5 @@
-import {ResponseTracking} from '../types';
 import {StyleSheet, Text, View} from 'react-native';
+import {ResponseTracking} from '../types';
 
 type Props = {
   ttnInfo: ResponseTracking;

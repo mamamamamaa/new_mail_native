@@ -1,5 +1,5 @@
 import {Button, StyleSheet, Text, View} from 'react-native';
-import {FormField} from './FormField';
+import {FormField} from '../../../common/components';
 
 type Props = {
   error: string | null;
@@ -23,6 +23,13 @@ export const WarehousesForm = ({
         onChange={handleChangeCity}
         placeholder="Obligatory in Ukrainian: Київ"
       />
+    </View>
+
+    <View style={styles.inputContainer}>
+      <Text>Pick default city:</Text>
+      <Text onPress={() => handleChangeCity('Київ')}>Київ</Text>
+      <Text onPress={() => handleChangeCity('Дніпро')}>Дніпро</Text>
+      <Text onPress={() => handleChangeCity('Одеса')}>Одеса</Text>
     </View>
     <Button title="Get Warehouses" onPress={handleSubmit} />
   </View>

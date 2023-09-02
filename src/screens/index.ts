@@ -1,3 +1,3 @@
-export * from './HomeScreen';
-export * from './WarehousesScreen';
-export * from './TrackingScreen';
+export * from './tracking';
+export * from './home';
+export * from './warehouses';

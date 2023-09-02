@@ -1,5 +1,5 @@
 import {Button, StyleSheet, Text, View} from 'react-native';
-import {FormField} from './FormField';
+import {FormField} from '../../../common/components';
 
 type Props = {
   error: string | null;
