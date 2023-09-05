@@ -10,28 +10,27 @@ type Props = {
 
 export const HomeContainer: FC<Props> = ({
   children,
-  marginTop = '70%',
   extraComponent: Component,
 }) => (
   <CommonScreenContainer style={styles.mainContainer}>
     {Component && <Component />}
-    <View style={{...styles.container, marginTop}}>{children}</View>
+    <View style={styles.container}>{children}</View>
   </CommonScreenContainer>
 );
 
 const styles = StyleSheet.create({
   mainContainer: {
-    position: 'relative',
-    height: 100,
+    display: 'flex',
+    height: '100%',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
   },
   heading: {
     textAlign: 'center',
-    height: 100,
   },
   container: {
-    padding: 20,
     backgroundColor: 'white',
-    height: '100%',
-    borderRadius: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 30,
   },
 });

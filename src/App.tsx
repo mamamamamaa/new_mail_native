@@ -8,8 +8,16 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home" screenOptions={{title: ''}}>
-        <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            title: 'Your home',
+            headerTitleAlign: 'center',
+            headerTintColor: '#2196F3',
+          }}
+        />
         <Stack.Screen
           name="Tracking"
           options={{title: 'Tracking Info'}}

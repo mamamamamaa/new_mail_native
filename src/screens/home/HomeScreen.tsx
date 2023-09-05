@@ -7,7 +7,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 export const HomeScreen = ({navigation}: Props) => {
   return (
-    <HomeContainer marginTop="165%" extraComponent={WelcomeHeading}>
+    <HomeContainer extraComponent={WelcomeHeading}>
       <View style={styles.buttonContainer}>
         <Button
           title="To Tracking screen"

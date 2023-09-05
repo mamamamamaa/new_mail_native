@@ -11,13 +11,13 @@ export const WelcomeHeading: FC = () => {
 
 const styles = StyleSheet.create({
   headingContainer: {
-    position: 'absolute',
-    top: '25%',
-    left: '3%',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 10,
+    padding: 20,
     backgroundColor: 'white',
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 50,
+    borderStyle: 'solid',
+    borderBottomColor: 'gray',
+    borderBottomWidth: 1,
   },
   heading: {
     textAlign: 'center',
