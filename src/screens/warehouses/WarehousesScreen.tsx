@@ -1,7 +1,7 @@
 import {FC} from 'react';
+import {CommonScreenContainer, Loader} from '../../common/components';
 import {WarehousesForm, WarehousesList} from './components';
 import {useWarehouses} from './hooks';
-import {CommonScreenContainer, Loader} from '../../common/components';
 
 export const WarehousesScreen: FC = () => {
   const {warehousesDescription, loading, ...formProps} = useWarehouses();
